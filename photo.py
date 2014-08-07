@@ -13,6 +13,6 @@ def Photo_to_matice(path):
     return [[tab[x*y] for x in range(width)] for y in range(height)]
 
 
-image = "./Data/Capture.PNG"
+image = "./Data/Dirge_of_Winter_by_probotech.jpg"
 photo = Photo_to_matice(image)
 print(photo)
