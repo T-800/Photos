@@ -28,7 +28,7 @@ def min_moy_max_Rouge(liste):
     mini = 0
     maxi = 0
     for elt in liste:
-        moy += elt[0]
+        moy += int(elt[0])
         if elt[0] <= mini:
             mini = elt[0]
         if elt[0] > maxi:
@@ -62,15 +62,21 @@ def min_moy_max_Bleu(liste):
     return mini, moy//len(liste), maxi
 
 if __name__ == '__main__':
-    photos = os.listdir("./Data/")
+
+    dossier = "/media/nas/Multimedia/Image/Images/"
+    dossier0 = "./Data/"
+    photos = os.listdir(dossier0)
     for elt in photos:
-        if elt.endswith("jpg"):
+        if elt.endswith("jpg") or elt.endswith("JPG"):
             print(elt)
-            photo = Photo_to_list("./Data/"+elt)
-            print("Rouge : "+str(min_moy_max_Rouge(photo)))
-            print("Vert : "+str(min_moy_max_Vert(photo)))
-            print("Bleu : "+str(min_moy_max_Bleu(photo)))
-            print("\n")
+            photo = Photo_to_list(dossier0+elt)
+            r = min_moy_max_Rouge(photo)
+            g = min_moy_max_Vert(photo)
+            b = min_moy_max_Bleu(photo)
+            #print("Rouge : "+str(r))
+            #print("Vert : "+str(g))
+            #print("Bleu : "+str(b))
 
+            print(str((r[1]+g[1]) // (510//25)))
 
-image = "./Data/Dirge_of_Winter_by_probotech.jpg"
+            #print(" ")
