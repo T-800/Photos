@@ -70,6 +70,7 @@ if __name__ == '__main__':
             print("Rouge : "+str(min_moy_max_Rouge(photo)))
             print("Vert : "+str(min_moy_max_Vert(photo)))
             print("Bleu : "+str(min_moy_max_Bleu(photo)))
+            print("\n")
 
 
 image = "./Data/Dirge_of_Winter_by_probotech.jpg"
