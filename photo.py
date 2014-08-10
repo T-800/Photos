@@ -63,11 +63,30 @@ def min_moy_max_Bleu(liste):
 
 
 def nombre_boules(liste):
-    b = min_moy_max_Bleu(liste)
-    print("Bleu : "+str(b))
-    j = b[1]
-    j = int((j/255)*20)
-    print("Boules : "+str(j))
+    """
+    """
+    TEINTE = []
+    for elt in liste:
+        MAX = max(elt)
+        MIN = min(elt)
+        C = MAX - MIN
+
+        if MAX == MIN:
+            TEINTE += [0]
+        elif elt[0] == MAX:  # ROUGE
+            A = elt[1] - elt[2]  # VERT - BLEU
+            TEINTE += [((60 * (A/C))) % 360]
+        elif elt[1] == MAX:  # VERT
+            A = elt[2] - elt[0]  # BLEU - ROUGE
+            TEINTE += [(60 * (A/C) + 120)]
+        elif elt[2] == MAX:  # BLEUa
+            A = elt[0] - elt[1]  # ROUGE - VERT
+            TEINTE += [(60 * (A/C) + 240)]
+
+    TEINTE_MOYENNE = sum(TEINTE)//len(TEINTE)
+
+    print("° : "+str(TEINTE_MOYENNE))
+
 
 if __name__ == '__main__':
 
@@ -75,16 +94,8 @@ if __name__ == '__main__':
     dossier0 = "./Data/"
     photos = os.listdir(dossier0)
     for elt in photos:
-        if elt.endswith("jpg") or elt.endswith("JPG"):
+        if elt.endswith("jpg") or elt.endswith("JPG") or elt.endswith("jpeg"):
             print(elt)
             photo = Photo_to_list(dossier0+elt)
-            #r = min_moy_max_Rouge(photo)
-            #g = min_moy_max_Vert(photo)
-            #b = min_moy_max_Bleu(photo)
-            #print("Rouge : "+str(r))
-            #print("Vert : "+str(g))
-            #print("Bleu : "+str(b))
             nombre_boules(photo)
-            #print(str((r[1]+g[1]) // (510//25)))
-
             print(" ")
