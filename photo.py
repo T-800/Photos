@@ -61,6 +61,14 @@ def min_moy_max_Bleu(liste):
             maxi = elt[2]
     return mini, moy//len(liste), maxi
 
+
+def nombre_boules(liste):
+    b = min_moy_max_Bleu(liste)
+    print("Bleu : "+str(b))
+    j = b[1]
+    j = int((j/255)*20)
+    print("Boules : "+str(j))
+
 if __name__ == '__main__':
 
     dossier = "/media/nas/Multimedia/Image/Images/"
@@ -70,13 +78,13 @@ if __name__ == '__main__':
         if elt.endswith("jpg") or elt.endswith("JPG"):
             print(elt)
             photo = Photo_to_list(dossier0+elt)
-            r = min_moy_max_Rouge(photo)
-            g = min_moy_max_Vert(photo)
-            b = min_moy_max_Bleu(photo)
+            #r = min_moy_max_Rouge(photo)
+            #g = min_moy_max_Vert(photo)
+            #b = min_moy_max_Bleu(photo)
             #print("Rouge : "+str(r))
             #print("Vert : "+str(g))
             #print("Bleu : "+str(b))
+            nombre_boules(photo)
+            #print(str((r[1]+g[1]) // (510//25)))
 
-            print(str((r[1]+g[1]) // (510//25)))
-
-            #print(" ")
+            print(" ")
