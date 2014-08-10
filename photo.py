@@ -4,16 +4,6 @@ from PIL import Image
 import os
 
 
-def Photo_to_matice(path):
-    """
-        Ouvre l'image et renvoi la matrice des pixels
-    """
-    im = Image.open(path)
-    width, height = im.size
-    tab = list(im.getdata())
-    return [[tab[x*y] for x in range(width)] for y in range(height)]
-
-
 def Photo_to_list(path):
     """
         Ouvre l'image et renvoi la liste des pixels
@@ -23,69 +13,45 @@ def Photo_to_list(path):
     return list(im.getdata())
 
 
-def min_moy_max_Rouge(liste):
-    moy = 0
-    mini = 0
-    maxi = 0
+def moyenne_RGB(liste):
+    moyenne = [0]*3
     for elt in liste:
-        moy += int(elt[0])
-        if elt[0] <= mini:
-            mini = elt[0]
-        if elt[0] > maxi:
-            maxi = elt[0]
-    return mini, moy//len(liste), maxi
+        moyenne[0] += int(elt[0])
+        moyenne[1] += int(elt[1])
+        moyenne[2] += int(elt[2])
 
-
-def min_moy_max_Vert(liste):
-    moy = 0
-    mini = 0
-    maxi = 0
-    for elt in liste:
-        moy += elt[1]
-        if elt[1] <= mini:
-            mini = elt[1]
-        if elt[1] > maxi:
-            maxi = elt[1]
-    return mini, moy//len(liste), maxi
-
-
-def min_moy_max_Bleu(liste):
-    moy = 0
-    mini = 0
-    maxi = 0
-    for elt in liste:
-        moy += elt[2]
-        if elt[2] <= mini:
-            mini = elt[2]
-        if elt[2] > maxi:
-            maxi = elt[2]
-    return mini, moy//len(liste), maxi
+    return [x//len(liste) for x in moyenne]
 
 
 def nombre_boules(liste):
-    """
-    """
-    TEINTE = []
-    for elt in liste:
-        MAX = max(elt)
-        MIN = min(elt)
-        C = MAX - MIN
 
-        if MAX == MIN:
-            TEINTE += [0]
-        elif elt[0] == MAX:  # ROUGE
-            A = elt[1] - elt[2]  # VERT - BLEU
-            TEINTE += [((60 * (A/C))) % 360]
-        elif elt[1] == MAX:  # VERT
-            A = elt[2] - elt[0]  # BLEU - ROUGE
-            TEINTE += [(60 * (A/C) + 120)]
-        elif elt[2] == MAX:  # BLEUa
-            A = elt[0] - elt[1]  # ROUGE - VERT
-            TEINTE += [(60 * (A/C) + 240)]
+    P = moyenne_RGB(liste)
+    TEINTE = 0
+    MAX = max(P)
+    MIN = min(P)
+    C = MAX - MIN
 
-    TEINTE_MOYENNE = sum(TEINTE)//len(TEINTE)
+    if MAX == MIN:
+        TEINTE += 360
+    elif P[0] == MAX:  # ROUGE
+        A = P[1] - P[2]  # VERT - BLEU
+        TEINTE = ((60 * (A/C))) % 360
+    elif P[1] == MAX:  # VERT
+        A = P[2] - P[0]  # BLEU - ROUGE
+        TEINTE = (60 * (A/C) + 120)
+    elif P[2] == MAX:  # BLEUa
+        A = P[0] - P[1]  # ROUGE - VERT
+        TEINTE = (60 * (A/C) + 240)
 
-    print("° : "+str(TEINTE_MOYENNE))
+    TEINTE = round(TEINTE)
+    print("° : "+str(TEINTE))
+
+    T = abs(TEINTE - 240)
+    print("DIFF° : "+str(T))
+    T = round(T // 18)
+    print("DIFF : "+str(T))
+    BOULE = 20 - T
+    print("Boule :"+str(BOULE))
 
 
 if __name__ == '__main__':

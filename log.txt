@@ -1,0 +1,156 @@
+A.jpeg
+° : 352
+DIFF° : 112
+DIFF : 6
+Boule :14
+ 
+B.jpg
+° : 20
+DIFF° : 220
+DIFF : 12
+Boule :8
+ 
+C.jpg
+° : 204
+DIFF° : 36
+DIFF : 2
+Boule :18
+ 
+D.jpg
+° : 336
+DIFF° : 96
+DIFF : 5
+Boule :15
+ 
+doctor_who.jpeg
+° : 358
+DIFF° : 118
+DIFF : 6
+Boule :14
+ 
+E.jpg
+° : 30
+DIFF° : 210
+DIFF : 11
+Boule :9
+ 
+F.jpg
+° : 47
+DIFF° : 193
+DIFF : 10
+Boule :10
+ 
+G.jpg
+° : 37
+DIFF° : 203
+DIFF : 11
+Boule :9
+ 
+H.jpg
+° : 200
+DIFF° : 40
+DIFF : 2
+Boule :18
+ 
+I.jpg
+° : 35
+DIFF° : 205
+DIFF : 11
+Boule :9
+ 
+J.jpg
+° : 196
+DIFF° : 44
+DIFF : 2
+Boule :18
+ 
+J2.jpg
+° : 195
+DIFF° : 45
+DIFF : 2
+Boule :18
+ 
+K.jpg
+° : 235
+DIFF° : 5
+DIFF : 0
+Boule :20
+ 
+L.jpg
+° : 351
+DIFF° : 111
+DIFF : 6
+Boule :14
+ 
+M.jpg
+° : 63
+DIFF° : 177
+DIFF : 9
+Boule :11
+ 
+N.jpg
+° : 209
+DIFF° : 31
+DIFF : 1
+Boule :19
+ 
+O.jpg
+° : 206
+DIFF° : 34
+DIFF : 1
+Boule :19
+ 
+P.jpg
+° : 202
+DIFF° : 38
+DIFF : 2
+Boule :18
+ 
+Q.jpg
+° : 32
+DIFF° : 208
+DIFF : 11
+Boule :9
+ 
+R.jpg
+° : 30
+DIFF° : 210
+DIFF : 11
+Boule :9
+ 
+S.jpg
+° : 346
+DIFF° : 106
+DIFF : 5
+Boule :15
+ 
+T.jpg
+° : 26
+DIFF° : 214
+DIFF : 11
+Boule :9
+ 
+U.jpg
+° : 15
+DIFF° : 225
+DIFF : 12
+Boule :8
+ 
+V.jpg
+° : 192
+DIFF° : 48
+DIFF : 2
+Boule :18
+ 
+W.jpg
+° : 298
+DIFF° : 58
+DIFF : 3
+Boule :17
+ 
+X.jpg
+° : 287
+DIFF° : 47
+DIFF : 2
+Boule :18
+ 
